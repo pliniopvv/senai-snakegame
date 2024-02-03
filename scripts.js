@@ -53,7 +53,7 @@ const canvas = document.querySelector("#snake"),
       x: 8,
       y: 8,
       direction: Direction.Right,
-      size: 15,
+      size: 1,
     },
   ],
   food = { ...ryx(), eaten: false };
@@ -226,7 +226,7 @@ window.addEventListener("keydown", onInput);
 
 window.onload = () => {
   // onUpdate();
-  gameLoop = setInterval(onUpdate, 150);
+  gameLoop = setInterval(onUpdate, 100);
 
   var backgroundSound = document.querySelector("#backgroundSound");
   backgroundSound.loop = true;
