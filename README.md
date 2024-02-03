@@ -5,3 +5,5 @@ Turma: Health
 
 - Gameplay:
 ![Gameplay](senai-snakegame.gif)
+
+[Jogar](https://pliniopvv.github.io/senai-snakegame/)
