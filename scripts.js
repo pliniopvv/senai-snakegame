@@ -42,7 +42,8 @@ function ryx() {
 // ###########################################################
 
 let direction = Direction.Right,
-  gameOver = false;
+  gameOver = false,
+  gameLoop;
 const canvas = document.querySelector("#snake"),
   context = canvas.getContext("2d"),
   box = 32,
@@ -166,6 +167,11 @@ function _gameOver() {
   context.fillStyle = "#f00";
   context.font = "48px serif";
   context.fillText("Game Over", 5 * box, 8 * box, 8 * box);
+
+  backgroundSound.pause();
+  failSound.play();
+
+  clearInterval(gameLoop);
 }
 
 function repaint() {
@@ -220,13 +226,16 @@ window.addEventListener("keydown", onInput);
 
 window.onload = () => {
   // onUpdate();
-  setInterval(onUpdate, 150);
+  gameLoop = setInterval(onUpdate, 150);
 
-  let backgroundSound = document.querySelector("#backgroundSound");
+  var backgroundSound = document.querySelector("#backgroundSound");
   backgroundSound.loop = true;
 
-  let eatSound = document.querySelector("#eatSound");
+  var eatSound = document.querySelector("#eatSound");
   eatSound.loop = false;
+
+  var failSound = document.querySelector("#failSound");
+  failSound.loop = false;
 
   backgroundSound.play();
 };
